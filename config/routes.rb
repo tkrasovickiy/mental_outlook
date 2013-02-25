@@ -1,4 +1,22 @@
 MentalOutlook::Application.routes.draw do
+  resources :answers
+
+  resources :questions
+
+  resources :categories
+
+  root :to => "main#index"
+  
+  match "/index" => "main#index"
+
+  match "/home" => "main#home"
+
+  match "/news" => "main#news"
+
+  match "/about" => "main#about"
+
+  match "/help" => "main#help"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
