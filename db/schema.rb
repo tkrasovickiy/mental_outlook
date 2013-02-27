@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130225154225) do
+ActiveRecord::Schema.define(:version => 20130227143301) do
 
   create_table "answers", :force => true do |t|
     t.integer  "ques_id"
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(:version => 20130225154225) do
     t.integer  "corr_answ_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_hash"
+    t.string   "password_salt"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
 end

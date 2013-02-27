@@ -12,9 +12,17 @@
     <div class="navbar">
       <div class="navbar-inner">
         <%= link_to "Кругозор.ру", { :controller => "main", :action => "index" }, :class => "brand" %>
-      </div>
+					<div id="user_nav" class="pull-right">
+						<% if current_user %>
+							<!--Logged in as <%= current_user.email %>.-->
+							<%= link_to "Log out", log_out_path, :class => "btn btn-inverse" %>
+						<% else %>
+							<%= link_to "Зарегистрироваться", sign_up_path, :class => "btn btn-info" %>
+							<%= link_to "Войти", log_in_path, :class => "btn btn-success" %>
+						<% end %>
+					</div>
+			</div>
     </div>
-    
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span2">
@@ -42,5 +50,8 @@
       </div>
     </div>
   </div>
+		<!--<% flash.each do |name, msg| %>
+			<%= content_tag :div, msg, :id => "flash_#{name}" %>
+		<% end %>-->
 </body>
 </html>
