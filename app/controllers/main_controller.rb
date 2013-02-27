@@ -1,4 +1,4 @@
-class MainController < ApplicationController
+﻿class MainController < ApplicationController
   def index
   end
 
@@ -6,6 +6,10 @@ class MainController < ApplicationController
   end
 
   def news
+  end
+  
+  def tests
+    @title = " | Тесты"
   end
 
   def about

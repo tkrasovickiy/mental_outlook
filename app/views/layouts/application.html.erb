@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MentalOutlook</title>
+  <title>Кругозор.ру<%= @title %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
   <%= javascript_include_tag "application" %>
@@ -19,13 +19,19 @@
       <div class="row-fluid">
         <div class="span2">
           <ul class="nav nav-pills nav-stacked">
-            <li class="active">
+            <li>
+              <%= link_to "Тесты", { :controller => "main", :action => "tests" } %>
+            </li>
+            <li>
               <%= link_to "Новости", { :controller => "main", :action => "news" } %>
             </li>
-            <li class="active">
+            <li>
+              <%= link_to "Настройки" %>
+            </li>
+            <li>
               <%= link_to "Помощь", { :controller => "main", :action => "help" } %>
             </li>
-            <li class="active">
+            <li>
               <%= link_to "О сайте", { :controller => "main", :action => "about" } %>
             </li>
           </ul>

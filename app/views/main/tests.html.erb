@@ -1,0 +1,17 @@
+﻿<div class="row-fluid">
+  <div class="span5">
+    <%= link_to "Разделы", { :controller => "categories", :action => "index" }, :class => "btn btn-large btn-block btn-success" %>
+  </div>
+  <div class="span5">
+    <%= link_to "Тест из случайных вопросов", { :controller => "questions", :action => "index"}, :class => "btn btn-large btn-block btn-primary" %>
+  </div>
+</div>
+<br>
+<div class="row-fluid">
+  <div class="span5">
+    <%= link_to "Новый раздел", new_category_path, :class => "btn btn-block" %>
+  </div>
+  <div class="span5">
+    <%= link_to "Новый вопрос", new_question_path, :class => "btn btn-block" %>
+  </div>
+</div>

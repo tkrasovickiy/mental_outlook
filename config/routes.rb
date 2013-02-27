@@ -2,14 +2,20 @@ MentalOutlook::Application.routes.draw do
   resources :answers
 
   resources :questions
-
+  
+  match "/test" => "questions#index"
+  
   resources :categories
 
+  match "/cats" => "categories#index"
+  
   root :to => "main#index"
   
   match "/index" => "main#index"
 
   match "/home" => "main#home"
+  
+  match "/tests" => "main#tests"
 
   match "/news" => "main#news"
 

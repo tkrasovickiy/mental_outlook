@@ -1,8 +1,9 @@
-class CategoriesController < ApplicationController
+﻿class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
     @categories = Category.all
+    @title = " | Разделы"
 
     respond_to do |format|
       format.html # index.html.erb
