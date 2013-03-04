@@ -14,7 +14,7 @@
         <%= link_to "Кругозор.ру", { :controller => "main", :action => "index" }, :class => "brand" %>
 					<div id="user_nav" class="pull-right">
 						<% if current_user %>
-							<!--Logged in as <%= current_user.email %>.-->
+							Logged in as <%= current_user.email %>.
 							<%= link_to "Выйти", log_out_path, :class => "btn" %>
 						<% else %>
 							<%= link_to "Вход", log_in_path, :class => "btn" %>

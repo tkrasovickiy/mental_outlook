@@ -27,6 +27,18 @@
     <%= f.label "Правильный ответ" %><br />
     <%= f.number_field :corr_answ_id %>
   </div>
+  
+  <% @answers.size.times do |i| %>
+    <div class="field">
+    <%= fields_for @answers[i] do |a| %>
+      <label for="answer_content<%=i%>">Answer <%=i%></label>
+      <input id="answer_content<%=i%>" name="answer[content][]" size="30" type="text" />      
+      <% a.label :content %>
+      <% a.text_field :content %>
+    <% end %>
+    </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

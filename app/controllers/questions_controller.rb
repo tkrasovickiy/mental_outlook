@@ -25,7 +25,9 @@ class QuestionsController < ApplicationController
   # GET /questions/new.json
   def new
     @question = Question.new
-
+    @answers = []
+    4.times { |i| @answers[i] = Answer.new }
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @question }
@@ -42,14 +44,24 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.new(params[:question])
 
-    respond_to do |format|
-      if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render json: @question, status: :created, location: @question }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+      
+    if @question.save
+      params[:answer].size.each do |ans|
+        @ans = Answer.new(params[ans])
+        @ans.ques_id = @question.id
+        @ans.save
+        
+        if ans == :answer1
+          @question.corr_answ_id = @ans.id 
+          @question.save
+        end
       end
+      
+      
+      
+      redirect_to @question, notice: 'Question was successfully created.'
+    else
+      render action: "new"
     end
   end
 
